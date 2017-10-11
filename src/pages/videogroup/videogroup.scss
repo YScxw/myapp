@@ -1,0 +1,28 @@
+﻿page-videogroup {
+  .big {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    z-index: -100;
+    background: #000000;
+  }
+
+  .small {
+    object-fit: cover;
+    position: fixed;
+    max-width: 25%;
+    max-height: 25%;
+    width: auto;
+    height: auto;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background: #000000;
+  }
+}

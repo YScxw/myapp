@@ -1,0 +1,75 @@
+﻿<!--
+  Generated template for the VideogroupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>videogroup</ion-title>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <button ion-button icon-only menuToggle="right" (click)="initializeContacts()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+   <video autoplay id="me" class="small"></video>
+   <video autoplay id="other" class="big"></video>
+</ion-content>
+
+<ion-menu [content]="setting">
+  <ion-header>
+    <ion-navbar>
+      <ion-title>settings</ion-title>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-label>video</ion-label>
+        <ion-toggle [(ngModel)]="video" (ionChange)="updateLocalStream('video')"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>audio</ion-label>
+        <ion-toggle [(ngModel)]="audio" (ionChange)="updateLocalStream('audio')"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>videoSource</ion-label>
+        <ion-select [(ngModel)]="cameraDeviceId" (ionChange)="updateLocalStream('cameraDeviceId')">
+          <ion-option *ngFor="let device of srcp.videoDevices" [value]="device.deviceId">{{device.label}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-menu side="right" [content]="contact">
+  <ion-header>
+    <ion-navbar>
+      <ion-title>settings</ion-title>
+      <button ion-button icon-only menuToggle="right" (click)="addContacts()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let item of contacts">
+        <ion-label>{{item.username}}</ion-label>
+        <ion-checkbox [(ngModel)]="item.isSelected"></ion-checkbox>
+      </ion-item>
+      <ion-item *ngIf="!contacts.length">Nobody online yet.</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #setting [root]="VideogroupPage"></ion-nav>
+<ion-nav #contact [root]="VideogroupPage"></ion-nav>

@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\assets",
+    "\\assets\\icon",
+    "\\pages",
+    "\\pages\\home",
+    "\\pages\\videogroup",
+    "\\providers",
+    "\\providers\\http-service",
+    "\\providers\\loginservice"
+  ],
+  "SelectedNode": "\\assets\\icon\\favicon.ico",
+  "PreviewInSolutionExplorer": false
+}
